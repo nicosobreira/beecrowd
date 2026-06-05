@@ -3,7 +3,7 @@ hi, mi, hf, mf = map(int, input().split())
 delta = (hf * 60 + mf) - (hi * 60 + mi)
 
 if delta <= 0:
-    delta += 1440  # 24h * 60min
+    delta += 24 * 60
 
 print(f"O JOGO DUROU {delta // 60} HORA(S) E {delta % 60} MINUTO(S)")
 
