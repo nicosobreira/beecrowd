@@ -20,7 +20,7 @@
 
       pythonEnv = pkgs.python311;
 
-      pythonPackages = pythonEnv.withPackages (ps:
+      pythonLibraries = pythonEnv.withPackages (ps:
         with ps; [
           pip
           virtualenv
@@ -38,7 +38,7 @@
         ];
 
         buildInputs = with pkgs; [
-          pythonPackages
+          pythonLibraries
 
           # Common native dependencies for building Python C-extensions
           stdenv.cc.cc
@@ -49,7 +49,7 @@
 
         shellHook = ''
           # Fixes issues with dynamic libraries on Linux
-          # export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH"
+          export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH"
 
           # Create a virtual environment automatically if it doesn't exist
           if [[ ! -d .venv ]]; then
