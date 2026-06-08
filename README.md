@@ -13,7 +13,7 @@ inverso = [a + b for a, b in zip(um, dois)]
 print("".join(inverso))
 ```
 
-> `acbd`
+> Resultado: `acbd`
 
 ### `sum`
 
@@ -23,7 +23,7 @@ lista = [1, 2, 3, 4]
 total = sum(e for e in lista)
 ```
 
-> `10`
+> Resultado: `10`
 
 ### print de lista em espaço
 
@@ -33,9 +33,23 @@ lista = [1, 2, 3, 4]
 print(*lista)
 ```
 
-> `1 2 3 4`
+> Resultado: `1 2 3 4`
 
 ### `max` e `min` com `key`
+
+``` python
+conta = {
+    "Amanda": 12,
+    "Pedro": 2,
+    "Carlos": 100,
+}
+
+print(max(conta, key = lambda k: conta[k]))
+```
+
+> Resultado: `Carlos`
+
+
 
 ``` python
 palavras = ["boi", "ornitorrinco", "gato"]
@@ -45,7 +59,7 @@ maior_palavra = max(palavras, key=len)
 print(maior_palavra)
 ```
 
-> `ornitorrinco`
+> Resultado: `ornitorrinco`
 
 ### `any` e `all`
 
@@ -59,7 +73,7 @@ if any(n < 0 for n in numeros):
     print("Dados Inválidos")
 ```
 
-> `Dados Inválidos`
+> Resultado: `Dados Inválidos`
 
 ### `input` e `round`
 
@@ -79,6 +93,6 @@ entrada = int(round(float(input()) * 100))
 - [x] 1161
 - [x] 1024
 - [x] 1238
-- [ ] 1555
-- [ ] 1199
+- [x] 1555
+- [x] 1199
 - [x] 2242
