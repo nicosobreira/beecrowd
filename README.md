@@ -2,6 +2,31 @@
 
 ## Truques
 
+### Quando a entrada acaba em EOF
+
+Não faça:
+
+``` python
+while True:
+    try:
+        formatada = input()
+    except EOFError:
+        break
+
+    print(formatada)
+```
+
+Mas sim:
+
+``` python
+import sys
+
+for linha in sys.stdin:
+    formatada = linha.replace("\n", "").replace("\r", "")
+
+    print(formatada)
+```
+
 ### `zip`
 
 ``` python
@@ -49,8 +74,6 @@ print(max(conta, key = lambda k: conta[k]))
 
 > Resultado: `Carlos`
 
-
-
 ``` python
 palavras = ["boi", "ornitorrinco", "gato"]
 
@@ -97,9 +120,11 @@ entrada = int(round(float(input()) * 100))
 - [x] 1199
 - [x] 2242
 
-- [ ] 1120
-- [ ] 1234
-- [ ] 1028
+---
+
+- [x] 1120
+- [x] 1234
+- [x] 1028
 
 - [ ] 1068
 - [ ] 1025
