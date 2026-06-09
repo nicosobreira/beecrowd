@@ -32,6 +32,9 @@
         name = "python311-env";
 
         nativeBuildInputs = with pkgs; [
+          # (pythonEnv.withPackages (ps: [
+          #   ps.debugpy
+          # ]))
           pyright
           black
           git
@@ -41,7 +44,7 @@
           pythonLibraries
 
           # Common native dependencies for building Python C-extensions
-          stdenv.cc.cc
+          # stdenv.cc.cc
           zlib
           libffi
           openssl
@@ -49,7 +52,7 @@
 
         shellHook = ''
           # Fixes issues with dynamic libraries on Linux
-          export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH"
+          # export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH"
 
           # Create a virtual environment automatically if it doesn't exist
           if [[ ! -d .venv ]]; then
