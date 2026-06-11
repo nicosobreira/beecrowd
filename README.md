@@ -2,6 +2,17 @@
 
 ## Truques
 
+### `sort`
+
+``` python
+entrada = input().split()
+
+# entrada.sort(key=lambda string: len(string), reverse=True)
+entrada.sort(key=len, reverse=True)
+
+print(*entrada)
+```
+
 ### Quando a entrada acaba em EOF
 
 Não faça:
