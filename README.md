@@ -13,6 +13,22 @@ entrada.sort(key=len, reverse=True)
 print(*entrada)
 ```
 
+### Builtin **Binary Search**
+
+Usamos do `bisect_left` por que o `arr` **deve estar em ordem crescente**.
+
+``` python
+from bisect import bisect_left
+
+
+def binary_search(arr, target):
+    index = bisect_left(arr, target)
+
+    if index < len(arr) and arr[index] == target:
+        return index
+    return -1
+```
+
 ### Quando a entrada acaba em EOF
 
 Não faça:
