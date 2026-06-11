@@ -3,10 +3,23 @@ import sys
 for linha in sys.stdin:
     expressao = linha.replace("\n", "").replace("\r", "")
 
-    parenteses = [p for p in expressao if p in "()"]
+    saldo = 0
+    correto = True
 
-    if len(parenteses) % 2 != 0:
+    for c in expressao:
+        if c == "(":
+            saldo += 1
+        elif c == ")":
+            saldo -= 1
+
+            # NOTE: Eu não consegui enxergar a necessidade de usar uma validação aqui
+            if saldo < 0:
+                correto = False
+                break
+
+    correto = False if saldo != 0 else True
+
+    if correto:
+        print("correct")
+    else:
         print("incorrect")
-        continue
-
-    print(*parenteses)
